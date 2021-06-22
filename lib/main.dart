@@ -69,75 +69,86 @@ class __CalculatorState extends State<_Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         // backgroundColor: Color(0x000),
         centerTitle: true,
         title: Text(
           "Calculator",
           style: TextStyle(
-            color: Colors.black,
+            decoration: TextDecoration.underline,
+            color: Colors.white,
           ),
         ),
-        actions: [
-          IconButton(icon: Icon(Icons.calculate_sharp), onPressed: () {})
-        ],
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.calculate,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
-              width: 250,
-              height: 40,
-              color: Colors.black,
-              child: Center(
-                child: Text(
-                  input,
-                  style: TextStyle(color: Colors.grey, fontSize: 23.4),
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    width: 5,
+                    color: Colors.white,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                width: MediaQuery.of(context).size.width,
+                height: 100,
+                child: Center(
+                  child: Text(
+                    input,
+                    style: TextStyle(color: Colors.black, fontSize: 23.4),
+                  ),
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                customButton('7'),
-                customButton('8'),
-                customButton('9'),
-                customButton('*'),
-              ],
+            SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                customButton('4'),
-                customButton('5'),
-                customButton('6'),
-                customButton('/'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                customButton('1'),
-                customButton('2'),
-                customButton('3'),
-                customButton('-'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                customButton('0'),
-                customButton('.'),
+                customButton(clear),
+                customButton('M+'),
+                // customButton('M-'),
                 OutlinedButton(
                   onPressed: output,
                   child: CircleAvatar(
                     radius: 10,
                     backgroundColor: Colors.orange.shade400,
                     child: Text(
-                      equal,
+                      'Exit',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Colors.orange.shade400,
+                    padding: EdgeInsets.all(25),
+                    shape: StadiumBorder(),
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: output,
+                  child: CircleAvatar(
+                    radius: 10,
+                    backgroundColor: Colors.orange.shade400,
+                    child: Text(
+                      '=',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
@@ -157,31 +168,61 @@ class __CalculatorState extends State<_Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                customButton('8'),
+                customButton('9'),
                 customButton('('),
                 customButton(')'),
-                customButton(clear),
-                OutlinedButton(
-                  onPressed: output,
-                  child: CircleAvatar(
-                    radius: 10,
-                    backgroundColor: Colors.orange.shade400,
-                    child: Text(
-                      'E',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    backgroundColor: Colors.orange.shade400,
-                    padding: EdgeInsets.all(25),
-                    shape: StadiumBorder(),
-                  ),
-                ),
+                customButton('*'),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                customButton('4'),
+                customButton('5'),
+                customButton('6'),
+                customButton('7'),
+                customButton('/'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                customButton('0'),
+                customButton('1'),
+                customButton('2'),
+                customButton('3'),
+                customButton('-'),
+              ],
+            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     customButton('0'),
+            //     customButton('.'),
+            //     OutlinedButton(
+            //       onPressed: output,
+            //       child: CircleAvatar(
+            //         radius: 10,
+            //         backgroundColor: Colors.orange.shade400,
+            //         child: Text(
+            //           equal,
+            //           style: TextStyle(
+            //             color: Colors.black,
+            //             fontWeight: FontWeight.w600,
+            //             fontSize: 20,
+            //           ),
+            //         ),
+            //       ),
+            //       style: OutlinedButton.styleFrom(
+            //         backgroundColor: Colors.orange.shade400,
+            //         padding: EdgeInsets.all(25),
+            //         shape: StadiumBorder(),
+            //       ),
+            //     ),
+            //     customButton('+'),
+            //   ],
+            // ),
           ],
         ),
       ),
