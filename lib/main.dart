@@ -69,7 +69,7 @@ class __CalculatorState extends State<_Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         // backgroundColor: Color(0x000),
         centerTitle: true,
